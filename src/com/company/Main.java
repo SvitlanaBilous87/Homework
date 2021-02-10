@@ -5,54 +5,47 @@ import java.util.Scanner;
 public class Main {
 
     public static void main(String[] args) {
-        System.out.println("Привіт! Давайте розв'яжемо квадратне рівняння ax²+bx+c=0 :)");
-        rozvKvR();
-    }
-    public static double getNumber() {
+        System.out.println("ЗАВДАННЯ №2");
+        System.out.println("Привіт! Давай перевірим, що на сьогодні заплановано :)");
+        System.out.println("Який сьогодні день тижня? Напишіть українською мовою:");
         Scanner sc = new Scanner(System.in);
-        if (sc.hasNextDouble()) {
-            return sc.nextDouble();
-        }
-        else {
-            System.out.println("Помилка введення даних! Потрібно ввести числове значення: ");
-            return getNumber();
-        }
-    }
-    public static void rozvKvR() {
-        System.out.println("Введіть коефіцієнт a:");
-        double a = getNumber();
-        System.out.println("Введіть коефіцієнт b:");
-        double b = getNumber();
-        System.out.println("Введіть коефіцієнт c:");
-        double c = getNumber();
-        if (a == 0) {
-            double x = -c / b;
-            System.out.println("Рівняння має один розв'язок x=" + roundTo(x));
-        } else if (b == 0) {
-            double y = -c / a;
-            if (y >= 0) {
-                double x = Math.sqrt(y);
-                System.out.println("Рівняння має один розв'язок x=" + roundTo(x));
-            } else {
-                System.out.println("Рівняння не має розв'язку :(");
+        String day = sc.nextLine();
+        switch (day) {
+            case "понеділок": {
+                System.out.println("ГІПЕРважливих справ сьогодні нема, головне зібратися духом, відійти" +
+                        " від вихідних та настроїтися на роботу.");
+                break;
             }
-        } else {
-            double d = b * b - 4 * a * c;
-            if (d > 0) {
-                double x1 = (-b + Math.sqrt(d)) / (2 * a);
-                double x2 = (-b - Math.sqrt(d)) / (2 * a);
-                System.out.println("Рівняння має два розв'язки: x1=" + roundTo(x1) + "; та x2=" +
-                        roundTo(x2));
-            } else if (d == 0) {
-                double x = -b / (2 * a);
-                System.out.println("Рівняння має один розв'язок x=" + roundTo(x));
-            } else {
-                System.out.println("Рівняння не має розв'язку :(");
+            case "вівторок": {
+                System.out.println("Після роботи не забудь про тренування!");
+                break;
+            }
+            case "середа": {
+                System.out.println("Тримайся, сьогодні здача звіту. А ввечері подзвонити тату.");
+                break;
+            }
+            case "четвер": {
+                System.out.println("Четвер - це маленька п'ятниця :) але ввечері тренування!");
+                break;
+            }
+            case "п'ятниця": {
+                System.out.println("Ммммм.... ось і ВОНА! Найкращий день тижня :) Завершити усі робочі" +
+                        " питання.");
+                break;
+            }
+            case "субота": {
+                System.out.println("Прибирання, магазини, приготування...");
+                break;
+            }
+            case "неділя": {
+                System.out.println("А тут вільна програма :) чудової неділі!");
+                break;
+            }
+            default: {
+                System.out.println("Некоректно введені дані :(");
+                break;
             }
         }
-    }
-    public static String roundTo(double val)
-    {
-        return String.format("%.2f", val);
-    }
+
+        }
 }
