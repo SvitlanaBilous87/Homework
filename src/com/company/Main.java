@@ -7,8 +7,13 @@ public class Main {
     public static void main(String[] args) {
         System.out.println("ЗАВДАННЯ №2");
         days();
+        System.out.println("");
         System.out.println("ЗАВДАННЯ №3");
         print55el();
+        System.out.println("");
+        System.out.println("ЗАВДАННЯ №4");
+        printfrom90();
+
     }
 
     private static void days() {
@@ -59,6 +64,13 @@ public class Main {
             System.out.println(j);
             j = j + 2;
         }
+    }
+    private static void printfrom90() {
+        int j=90;
+        do {
+            System.out.println(j);
+            j = j-5;
+        } while (j>=0);
     }
 }
 
