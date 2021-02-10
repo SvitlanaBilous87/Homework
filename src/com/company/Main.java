@@ -16,6 +16,9 @@ public class Main {
         System.out.println("");
         System.out.println("ЗАВДАННЯ №5");
         compare10();
+        System.out.println("");
+        System.out.println("ЗАВДАННЯ №6");
+        maxminrandarray();
     }
 
     public static void days() {
@@ -118,5 +121,33 @@ public class Main {
             }
         }
     }
+    public static void maxminrandarray() {
+        System.out.println("Введіть кількість елементів масиву: ");
+        Scanner sc = new Scanner(System.in);
+        int i = sc.nextInt();
+        int array[] = new int[i];
+        System.out.println("Заповнимо його випадковими цілими числами від A до B.");
+        System.out.println("Введіть початок діапазону A: ");
+        int a= sc.nextInt();
+        System.out.println("Введіть кінець діапазону B: ");
+        int b= sc.nextInt();
+        System.out.println("Отримуємо такий масив: ");
+        for (int j=0; j<i; j++){
+            array[j] =(int)((Math.random() * (b-a+1)) + a);
+            System.out.println(array[j]);
+        }
+        int min = array[0];
+        int max = array[0];
+        for (int j=1; j<i; j++){
+            if (array[j]<min) {
+                min = array[j];
+            }
+            else if (array[j]>max){
+                max = array[j];
+            }
+        }
+        System.out.println("Найбільше число в нашому масиві: "+max+" , а найменше: "+min);
+    }
+
 }
 
