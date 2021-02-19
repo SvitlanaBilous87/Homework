@@ -36,10 +36,10 @@ public class wheels {
 
     @Override
     public String toString() {
-        return "wheels{" +
-                "diameter=" + diameter +
-                ", width=" + width +
-                ", model='" + model + '\'' +
+        return "wheels {" +
+                "diameter " + diameter +
+                " sm, width " + width +
+                " sm, model " + model +
                 '}';
     }
     public void tuningWheels(int increaseD, int increaseW, String model){

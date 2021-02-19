@@ -11,9 +11,9 @@ public class body {
 
     @Override
     public String toString() {
-        return "body{" +
-                "color='" + color + '\'' +
-                ", type='" + type + '\'' +
+        return "body {" +
+                "color " + color +
+                ", type " + type +
                 '}';
     }
 

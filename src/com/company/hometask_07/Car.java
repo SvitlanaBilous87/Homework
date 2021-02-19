@@ -77,20 +77,20 @@ public class Car {
 
     @Override
     public String toString() {
-        return "Car{" +
-                "model='" + model + '\'' +
-                ", year=" + year +
-                ", fuel='" + fuel + '\'' +
-                ", fuelCapacity=" + fuelCapacity +
-                ", steeringWheel=" + steeringWheel +
-                ", wheels=" + wheels +
-                ", body=" + body +
+        return "Car {" +
+                "model " + model +
+                ", year " + year +
+                ", fuel " + fuel +
+                ", fuelCapacity " + fuelCapacity +
+                ", " + steeringWheel +
+                ", " + wheels +
+                ", " + body +
                 '}';
     }
 
     public void longRide(){
         if (fuelCapacity == 0) {
-            System.out.println("Need to refuel");
+            System.out.println("Need to refuel.");
             fuelCapacity = 50;
         }
             else {

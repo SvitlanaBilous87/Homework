@@ -36,10 +36,10 @@ public class steeringWheel {
 
     @Override
     public String toString() {
-        return "steeringWheel{" +
-                "diameter=" + diameter +
-                ", material='" + material + '\'' +
-                ", color='" + color + '\'' +
+        return "steeringWheel {" +
+                "diameter " + diameter +
+                " sm, material " + material +
+                ", color " + color +
                 '}';
     }
 
