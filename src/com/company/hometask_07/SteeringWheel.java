@@ -1,10 +1,10 @@
 package com.company.hometask_07;
 
-public class steeringWheel {
+public class SteeringWheel {
     private int diameter;
     private String material;
     private String color;
-    steeringWheel(int diameter, String material, String color) {
+    SteeringWheel(int diameter, String material, String color) {
         this.diameter=diameter;
         this.material=material;
         this.color=color;
@@ -36,7 +36,7 @@ public class steeringWheel {
 
     @Override
     public String toString() {
-        return "steeringWheel {" +
+        return "SteeringWheel {" +
                 "diameter " + diameter +
                 " sm, material " + material +
                 ", color " + color +

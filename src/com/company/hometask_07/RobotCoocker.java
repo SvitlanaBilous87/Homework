@@ -1,9 +1,9 @@
 package com.company.hometask_07;
 
-public class robotCoocker extends robot {
+public class RobotCoocker extends Robot {
     private String name;
 
-    public robotCoocker(String name) {
+    public RobotCoocker(String name) {
         super(name);
         this.name = name + "Cooker";
     }

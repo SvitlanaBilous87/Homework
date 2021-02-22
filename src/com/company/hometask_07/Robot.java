@@ -1,8 +1,8 @@
 package com.company.hometask_07;
 
-public class robot {
+public class Robot {
     private String name;
-    public robot(String name){
+    public Robot(String name){
         this.name = name;
     }
 

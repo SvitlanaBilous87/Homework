@@ -5,11 +5,11 @@ public class Car {
     private int year;
     private String fuel;
     private int fuelCapacity;
-    private steeringWheel steeringWheel;
-    private wheels wheels;
-    private body body;
+    private SteeringWheel steeringWheel;
+    private Wheels wheels;
+    private Body body;
 
-    public Car(String model, int year, String fuel, int fuelCapacity, com.company.hometask_07.steeringWheel steeringWheel, com.company.hometask_07.wheels wheels, com.company.hometask_07.body body) {
+    public Car(String model, int year, String fuel, int fuelCapacity, SteeringWheel steeringWheel, Wheels wheels, Body body) {
         this.model = model;
         this.year = year;
         this.fuel = fuel;
@@ -51,27 +51,27 @@ public class Car {
         this.fuelCapacity = fuelCapacity;
     }
 
-    public com.company.hometask_07.steeringWheel getSteeringWheel() {
+    public SteeringWheel getSteeringWheel() {
         return steeringWheel;
     }
 
-    public void setSteeringWheel(com.company.hometask_07.steeringWheel steeringWheel) {
+    public void setSteeringWheel(SteeringWheel steeringWheel) {
         this.steeringWheel = steeringWheel;
     }
 
-    public com.company.hometask_07.wheels getWheels() {
+    public Wheels getWheels() {
         return wheels;
     }
 
-    public void setWheels(com.company.hometask_07.wheels wheels) {
+    public void setWheels(Wheels wheels) {
         this.wheels = wheels;
     }
 
-    public com.company.hometask_07.body getBody() {
+    public Body getBody() {
         return body;
     }
 
-    public void setBody(com.company.hometask_07.body body) {
+    public void setBody(Body body) {
         this.body = body;
     }
 
@@ -82,7 +82,7 @@ public class Car {
                 ", year " + year +
                 ", fuel " + fuel +
                 ", fuelCapacity " + fuelCapacity +
-                ", " + steeringWheel +
+                " l, " + steeringWheel +
                 ", " + wheels +
                 ", " + body +
                 '}';

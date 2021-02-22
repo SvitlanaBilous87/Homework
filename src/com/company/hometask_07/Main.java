@@ -4,19 +4,19 @@ public class Main {
     public static void main(String[] args){
         System.out.println("TASK_01:");
         String name = "Robot";
-        robot r1 = new robot(name);
-        coffeRobot r2 = new coffeRobot(name);
-        robotDancer r3 = new robotDancer(name);
-        robotCoocker r4= new robotCoocker(name);
-        robot[] R = {r1, r2, r3, r4};
+        Robot r1 = new Robot(name);
+        CoffeRobot r2 = new CoffeRobot(name);
+        RobotDancer r3 = new RobotDancer(name);
+        RobotCoocker r4= new RobotCoocker(name);
+        Robot[] R = {r1, r2, r3, r4};
         int k;
         for (k=0; k<R.length; k++){
 R[k].work();
         }
         System.out.println("TASK_02:");
-        steeringWheel sw = new steeringWheel(20, "plastic", "black");
-        wheels w = new wheels(50, 20, "GoodYear");
-        body b = new body("white", "sedan");
+        SteeringWheel sw = new SteeringWheel(20, "plastic", "black");
+        Wheels w = new Wheels(50, 20, "GoodYear");
+        Body b = new Body("white", "sedan");
         Car c = new Car("Toyota", 2006, "petrol", 0, sw, w, b);
         System.out.println("Basic configuration:");
         System.out.println(c);

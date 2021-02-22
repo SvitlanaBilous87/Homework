@@ -1,10 +1,10 @@
 package com.company.hometask_07;
 
-public class wheels {
+public class Wheels {
     private int diameter;
     private int width;
     private String model;
-    wheels(int diameter, int width, String model) {
+    Wheels(int diameter, int width, String model) {
         this.diameter=diameter;
         this.width=width;
         this.model=model;
@@ -36,7 +36,7 @@ public class wheels {
 
     @Override
     public String toString() {
-        return "wheels {" +
+        return "Wheels {" +
                 "diameter " + diameter +
                 " sm, width " + width +
                 " sm, model " + model +

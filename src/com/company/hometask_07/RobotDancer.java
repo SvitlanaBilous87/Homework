@@ -1,11 +1,11 @@
 package com.company.hometask_07;
 
-public class coffeRobot extends robot {
+public class RobotDancer extends Robot {
     private String name;
 
-    public coffeRobot(String name) {
+    public RobotDancer(String name) {
         super(name);
-        this.name = "Coffe" + name;
+        this.name = name + "Dancer";
     }
 
     @Override
@@ -20,6 +20,6 @@ public class coffeRobot extends robot {
 
     @Override
     public void work() {
-        System.out.println("Я " + name + " - я варю каву");
+        System.out.println("Я " + name + " - я просто танцюю");
     }
 }

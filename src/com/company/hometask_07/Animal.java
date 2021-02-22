@@ -1,7 +1,5 @@
 package com.company.hometask_07;
 
-import java.util.Scanner;
-
 public class Animal {
     private String name;
     private int speed;

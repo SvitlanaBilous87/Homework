@@ -1,17 +1,17 @@
 package com.company.hometask_07;
 
-public class body {
+public class Body {
     private String color;
     private String type;
 
-    body(String color, String type) {
+    Body(String color, String type) {
         this.color = color;
         this.type = type;
     }
 
     @Override
     public String toString() {
-        return "body {" +
+        return "Body {" +
                 "color " + color +
                 ", type " + type +
                 '}';
