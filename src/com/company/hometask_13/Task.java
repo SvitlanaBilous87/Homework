@@ -59,18 +59,18 @@ public class Task {
     }
 
     private static void printAllStartWithS(List<String> list) {
-        int i = 0;
+        List<String> wordsS = new ArrayList<>();
         System.out.println("Words starting with 's': ");
 
         for (String str : list) {
 
             if (str.toLowerCase().startsWith("s")) {
                 System.out.print(str + " ");
-                i++;
+                wordsS.add(str);
             }
         }
 
-        if (i==0){
+        if (wordsS.isEmpty()){
             System.out.println("None.");
         }
 
@@ -80,18 +80,18 @@ public class Task {
     }
 
     private static void printAllLonger5(List<String> list) {
-        int i = 0;
+        List<String> wordsLonger5 = new ArrayList<>();
         System.out.println("Words containing more than 5 letters: ");
 
         for (String str : list) {
 
             if (str.length()>5) {
                 System.out.print(str + " ");
-                i++;
+                wordsLonger5.add(str);
             }
         }
 
-        if (i==0){
+        if (wordsLonger5.isEmpty()){
             System.out.println("None.");
         }
 
