@@ -7,9 +7,9 @@ public class Employee implements Serializable {
     private final long serialVersionUID = 1L;
     private String name;
     private int id;
-    private transient double salary;
+    private transient Salary salary;
 
-    public Employee(String name, int id, double salary) {
+    public Employee(String name, int id, Salary salary) {
         this.name = name;
         this.id = id;
         this.salary = salary;
@@ -34,11 +34,11 @@ public class Employee implements Serializable {
         this.id = id;
     }
 
-    public double getSalary() {
+    public Salary getSalary() {
         return salary;
     }
 
-    public void setSalary(double salary) {
+    public void setSalary(Salary salary) {
         this.salary = salary;
     }
 
