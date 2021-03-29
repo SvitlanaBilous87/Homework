@@ -2,7 +2,7 @@ package com.company.hometask_20;
 
 import java.io.*;
 
-public class Methods <K>{
+public class Methods {
 
     public static <K> void serialize(K object, String path){
         try (OutputStream fileOutputStream = new FileOutputStream(path);

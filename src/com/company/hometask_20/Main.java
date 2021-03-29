@@ -34,7 +34,6 @@ public class Main {
 
         for (Employee e : employees){
             System.out.println(e.getName()+"'s salary is "+ salariesDeserialized.get(employees.indexOf(e)).getSum());
-            salaries.add(e.getSalary());
         }
     }
 }
