@@ -37,6 +37,7 @@ public class Main {
                 writer.write("\r\n");
             }
         }
+        writer.flush();
     } catch (IOException | IllegalAccessException e){
             System.out.println(e.getMessage());
         }
