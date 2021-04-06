@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class Task_02 {
 
@@ -19,19 +20,16 @@ public class Task_02 {
         people.add(new Person("Nik", 70, "man"));
 
         // Вибираємо чоловіків-військовозобов'язаних (від 18 до 27 років)
-        people.stream().filter(person -> person.getSex().equals("man") && person.getAge() >= 18 && person.getAge()<+27)
+        people.stream().filter(person -> person.getSex().equals("man") && person.getAge() >= 18 && person.getAge() <= 27)
                 .forEach(System.out::println);
 
         // Шукаємо середній вік серед чоловіків
-        System.out.println("Average men's age : "+people.stream().filter(person -> person.getSex().equals("man"))
+        System.out.println("Average men's age : " + people.stream().filter(person -> person.getSex().equals("man"))
                 .mapToInt(Person::getAge).average().getAsDouble());
 
         // Шукаємо кількість потенційно працездатних людей (від 18 років: жінки до 55, чоловіки до 60)
-        List<Person> workable = people.stream().filter(person -> person.getSex().equals("man")
-                && person.getAge() >= 18 && person.getAge() < 60).collect(Collectors.toList());
-        people.stream().filter(person -> person.getSex().equals("woman") && person.getAge() >= 18
-                && person.getAge() < 55).forEach(workable::add);
-        System.out.println("Number of potentially workable people : "+workable.size());
+        System.out.println("Number of potentially workable people : " + people.stream()
+                .filter(person -> workable(person)).count());
 
         // Сортуємо колекцію людей за ім'ям в зворотному алфавітному порядку
         System.out.println("People in reverse alphabetical order: ");
@@ -44,19 +42,35 @@ public class Task_02 {
         people.stream().sorted(Comparator.comparing(Person::getAge)).forEach(System.out::println);
 
         // Шукаємо найстаршу та наймолодшу людину
-        System.out.println("The oldest person : "+people.stream().sorted((p1, p2) -> p2.getAge()
+        System.out.println("The oldest person : " + people.stream().sorted((p1, p2) -> p2.getAge()
                 .compareTo(p1.getAge())).findFirst().get());
-        System.out.println("The youngest person : "+people.stream().sorted(Comparator.comparing(Person::getAge))
+        System.out.println("The youngest person : " + people.stream().sorted(Comparator.comparing(Person::getAge))
                 .findFirst().get());
 
         // Виводимо кількості чоловіків та жінок
-        System.out.println("Number of men : "+people.stream().filter(person -> person.getSex().equals("man")).count());
-        System.out.println("Number of women : "+people.stream().filter(person -> person.getSex()
+        System.out.println("Number of men : " + people.stream().filter(person -> person.getSex().equals("man")).count());
+        System.out.println("Number of women : " + people.stream().filter(person -> person.getSex()
                 .equals("woman")).count());
 
         // Виводимо жінок, імена яких починаються на A
         System.out.println("Women which names start with A : ");
         people.stream().filter(person -> person.getSex().equals("woman") && person.getName()
                 .startsWith("A")).forEach(System.out::println);
+    }
+
+    // метод для перевірки на потенційну працездатність
+    public static boolean workable(Person person) {
+        boolean flag = false;
+        if (person.getSex().equals("man")) {
+            if (person.getAge() >= 18 && person.getAge() < 60) {
+                flag = true;
+            }
         }
+            else if (person.getSex().equals("woman")) {
+                if (person.getAge() >= 18 && person.getAge() < 55) {
+                    flag = true;
+                }
+            }
+        return flag;
+    }
 }
