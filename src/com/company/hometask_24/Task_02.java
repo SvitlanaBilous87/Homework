@@ -20,57 +20,69 @@ public class Task_02 {
         people.add(new Person("Nik", 70, "man"));
 
         // Вибираємо чоловіків-військовозобов'язаних (від 18 до 27 років)
-        people.stream().filter(person -> person.getSex().equals("man") && person.getAge() >= 18 && person.getAge() <= 27)
+        people.stream()
+                .filter(person -> person.getSex().equalsIgnoreCase("man") && person.getAge() >= 18
+                        && person.getAge() <= 27)
                 .forEach(System.out::println);
 
         // Шукаємо середній вік серед чоловіків
-        System.out.println("Average men's age : " + people.stream().filter(person -> person.getSex().equals("man"))
-                .mapToInt(Person::getAge).average().getAsDouble());
+        System.out.println("Average men's age : " + people.stream()
+                .filter(person -> person.getSex().equalsIgnoreCase("man"))
+                .mapToInt(Person::getAge)
+                .average()
+                .getAsDouble());
 
         // Шукаємо кількість потенційно працездатних людей (від 18 років: жінки до 55, чоловіки до 60)
-        System.out.println("Number of potentially workable people : " + people.stream()
-                .filter(person -> workable(person)).count());
+        System.out.println("Number of potentially workable people : "
+                + workable(people.stream()).count());
 
         // Сортуємо колекцію людей за ім'ям в зворотному алфавітному порядку
         System.out.println("People in reverse alphabetical order: ");
-        people.stream().sorted((p1, p2) -> p2.getName().compareTo(p1.getName())).forEach(System.out::println);
+        people.stream()
+                .sorted((p1, p2) -> p2.getName().compareTo(p1.getName()))
+                .forEach(System.out::println);
 
         // Сортуємо колекцію людей за ім'ям в алфавітному порядку та за віком
         System.out.println("People in alphabetical order: ");
-        people.stream().sorted(Comparator.comparing(Person::getName)).forEach(System.out::println);
+        people.stream()
+                .sorted(Comparator.comparing(Person::getName))
+                .forEach(System.out::println);
+
         System.out.println("People sorted by age: ");
-        people.stream().sorted(Comparator.comparing(Person::getAge)).forEach(System.out::println);
+        people.stream()
+                .sorted(Comparator.comparing(Person::getAge))
+                .forEach(System.out::println);
 
         // Шукаємо найстаршу та наймолодшу людину
-        System.out.println("The oldest person : " + people.stream().sorted((p1, p2) -> p2.getAge()
-                .compareTo(p1.getAge())).findFirst().get());
-        System.out.println("The youngest person : " + people.stream().sorted(Comparator.comparing(Person::getAge))
-                .findFirst().get());
+        System.out.println("The oldest person : " + people.stream()
+                .max(Comparator.comparing(Person::getAge))
+                .get());
+
+        System.out.println("The youngest person : " + people.stream()
+                .min(Comparator.comparing(Person::getAge))
+                .get());
 
         // Виводимо кількості чоловіків та жінок
-        System.out.println("Number of men : " + people.stream().filter(person -> person.getSex().equals("man")).count());
-        System.out.println("Number of women : " + people.stream().filter(person -> person.getSex()
-                .equals("woman")).count());
+        System.out.println("Number of men : " + people.stream()
+                .filter(person -> person.getSex().equalsIgnoreCase("man"))
+                .count());
+
+        System.out.println("Number of women : " + people.stream()
+                .filter(person -> person.getSex().equalsIgnoreCase("woman"))
+                .count());
 
         // Виводимо жінок, імена яких починаються на A
         System.out.println("Women which names start with A : ");
-        people.stream().filter(person -> person.getSex().equals("woman") && person.getName()
-                .startsWith("A")).forEach(System.out::println);
+        people.stream()
+                .filter(person -> person.getSex().equalsIgnoreCase("woman") && person.getName()
+                        .toUpperCase().startsWith("A"))
+                .forEach(System.out::println);
     }
 
-    // метод для перевірки на потенційну працездатність
-    public static boolean workable(Person person) {
-        boolean flag = false;
-        if (person.getSex().equals("man")) {
-            if (person.getAge() >= 18 && person.getAge() < 60) {
-                flag = true;
-            }
-        }
-            else if (person.getSex().equals("woman")) {
-                if (person.getAge() >= 18 && person.getAge() < 55) {
-                    flag = true;
-                }
-            }
-        return flag;
+    //метод для перевірки на потенційну працездатність
+    public static Stream<Person> workable(Stream<Person> people) {
+        return people.filter(person -> ((person.getSex().equalsIgnoreCase("man")
+                && person.getAge() >= 18 && person.getAge() < 60) || (person.getSex()
+                .equalsIgnoreCase("woman") && person.getAge() >= 18 && person.getAge() < 55)));
     }
 }
